@@ -38,6 +38,10 @@
                     </div>
                 @endforeach
             </div>
+
+            <div class="my-10">
+                {{$posts->links()}}
+            </div>
         @else
             <p class="text-gray-600 uppercase text-sm text-center font-black">No hay posts</p>
         @endif
