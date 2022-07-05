@@ -20,16 +20,29 @@
                     {{ $post->descripcion }}
                 </p>
             </div>
+
+            @auth
+                @if ($post->user_id === auth()->user()->id)
+                    <form action="{{ route('posts.destroy', $post) }}" method="POST">
+
+                        @csrf
+                        @method('DELETE')
+
+                        <input type="submit" value="Eliminar publicación"
+                            class="bg-red-500 hover:bg-red-600 p-2 rounded text-white font-bold mt-4 cursor-pointer" />
+                    </form>
+                @endif
+            @endauth
         </div>
         <div class="md:w-1/2 p-5">
             <div class="shadow bg-white p-5 mb-5">
 
-                @auth    
+                @auth
                     <p class="text-xl font-bold text-center mb-4">Agrega un nuevo comentario</p>
 
                     @if (session('mensaje'))
                         <div class="bg-green-500 p-2 rounded-lg mb-6 text-white text-center uppercase font-bold">
-                            {{session('mensaje')}}
+                            {{ session('mensaje') }}
                         </div>
                     @endif
 
@@ -38,7 +51,8 @@
                         @csrf
 
                         <div class="mb-5">
-                            <label for="comentario" class="mb-2 block uppercase text-gray-500 font-bold">Añade un comentario</label>
+                            <label for="comentario" class="mb-2 block uppercase text-gray-500 font-bold">Añade un
+                                comentario</label>
                             <textarea placeholder="Agrega un comentario"
                                 class="border p-3 w-full rounded-lg @error('comentario') border-red-500 @enderror" name="comentario"
                                 id="comentario"></textarea>
@@ -48,7 +62,7 @@
                         </div>
 
                         <input type="submit" value="Comentar"
-                        class="bg-sky-600 hover:bg-sky-700 transition-colors uppercase font-bold w-full p-3 text-white rounded-lg">
+                            class="bg-sky-600 hover:bg-sky-700 transition-colors uppercase font-bold w-full p-3 text-white rounded-lg">
                     </form>
                 @endauth
 
@@ -56,7 +70,8 @@
                     @if ($post->comentarios->count())
                         @foreach ($post->comentarios as $comentario)
                             <div class="p-5 border-gray-300 border-b">
-                                <a href="{{ route('posts.index', ['user' => $comentario->user]) }}" class="font-bold">{{ $comentario->user->username }}</a>
+                                <a href="{{ route('posts.index', ['user' => $comentario->user]) }}"
+                                    class="font-bold">{{ $comentario->user->username }}</a>
                                 <p>{{ $comentario->comentario }}</p>
                                 <p class="text-sm text-gray-500">{{ $comentario->created_at->diffForHumans() }}</p>
                             </div>
