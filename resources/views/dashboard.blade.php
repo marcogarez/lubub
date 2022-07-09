@@ -3,15 +3,21 @@
 @section('titulo', $user->username)
 
 @section('contenido')
+    @if (session('mensaje'))
+        <div class="flex justify-center">
+            <p class="bg-green-500 text-white my-2 rounded-lg text-xl p-2 text-center w-1/2">{{ session('mensaje') }}</p>
+        </div>
+    @endif
     <div class="flex justify-center">
         <div class="w-full md:w-8/12 lg:w-6/12 flex flex-col items-center md:flex-row">
             <div class="w-8/12 lg:w-6/12 px-5">
-                <img src="{{ asset('perfiles/' . $user->imagen) }}" alt="Imagen usuario">
+                <img src="{{ $user->imagen ? asset('perfiles' . '/' . $user->imagen) : asset('img/usuario.svg') }}"
+                    alt="Imagen usuario">
             </div>
             <div class="md:w-8/12 lg:w-6/12 px-5 flex flex-col items-center md:justify-center md:items-start py-10 md:py-10">
                 <div class="flex items-center gap-4">
                     <p class="text-gray-700 text-2xl">{{ $user->username }}</p>
-    
+
                     @auth
                         @if ($user->id === auth()->user()->id)
                             <a class="text-gray-500 hover:text-gray-600 cursor-pointer" href="{{ route('perfil.index') }}">

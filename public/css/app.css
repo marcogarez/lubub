@@ -635,6 +635,9 @@ video {
 .w-6 {
   width: 1.5rem;
 }
+.w-1\/2 {
+  width: 50%;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
