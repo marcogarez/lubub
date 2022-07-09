@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>Devstagram - @yield('titulo')</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @livewireStyles
 </head>
 
 <body class="bg-gray-100">
@@ -60,6 +61,7 @@
     </footer>
 
 
+    @livewireScripts
 </body>
 
 </html>
