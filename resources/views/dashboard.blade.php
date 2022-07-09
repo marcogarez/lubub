@@ -37,7 +37,7 @@
                     <span class="font-normal">0 Siguiendo</span>
                 </p>
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    <span class="font-normal">0 Posts</span>
+                    <span class="font-normal">{{ $user->posts->count() }} posts</span>
                 </p>
             </div>
         </div>
