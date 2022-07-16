@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @stack('styles')
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Devstagram - @yield('titulo')</title>
+    <title>Lubub - @yield('titulo')</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     @livewireStyles
 </head>
@@ -15,7 +15,7 @@
 <body class="bg-gray-100">
     <header class="p-5 border-b bg-white shadow">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="{{ route('home') }}" class="text-3xl font-black">Devstagram</a>
+            <a href="{{ route('home') }}" class="text-3xl font-black">Lubub</a>
 
             @auth
                 <nav class="flex gap-2 items-center">
@@ -57,7 +57,7 @@
     </main>
 
     <footer class="text-center p-5 text-gray-500 font-bold uppercase mt-10">
-        Devstagram - Todos los derechos reservados {{ now()->year }}
+        Lubub - Todos los derechos reservados {{ now()->year }}
     </footer>
 
 
