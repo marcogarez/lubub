@@ -1,6 +1,6 @@
-## About Devstagram
+## About Lubub
 
-Devstagram is an Instagram clone made with Laravel, Blade, Livewire, MySql, Laravel mix and Tailwind CSS.
+Lubub is an Instagram-based social media made with Laravel, Blade, Livewire, MySql, Laravel mix and Tailwind CSS.
 
 The project has:
 
